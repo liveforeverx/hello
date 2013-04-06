@@ -101,7 +101,7 @@ encode(Num) when is_float(Num)   -> list_to_binary(float_to_list(Num));
 encode(true)                     -> <<"true">>;
 encode(false)                    -> <<"false">>;
 encode(null)                     -> <<"null">>;
-encode({Props})                  -> enc_obj(Props, <<"{">>);
+encode({Props})                  -> enc_obj(lists:reverse(Props), <<"{">>);
 encode({obj, Props})             -> enc_obj(Props, <<"{">>);
 encode({Date, Time})             -> enc_timestamp(Date, Time);
 encode(Lis) when is_list(Lis)    -> enc_array(Lis, <<"[">>);

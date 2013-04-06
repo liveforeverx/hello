@@ -281,7 +281,7 @@ run_notification_sink_function(Function, Client, Method, Params) ->
     mod :: module(),
     mod_state :: term(),
     options :: #client_options{},
-    next_reqid = 0 :: non_neg_integer()
+    next_reqid = 1 :: non_neg_integer()
 }).
 
 %% @hidden

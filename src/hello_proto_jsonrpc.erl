@@ -240,7 +240,7 @@ single_request(_Other) ->
 
 single_response(Version, ID, Props) ->
     case proplists:get_value(<<"error">>, Props) of
-        undefined ->
+        Atom when (Atom == undefined) orelse ( (Atom == null) andalso (Version =:= 1) ) ->
             case proplists:get_value(<<"result">>, Props) of
                 undefined ->
                     throw({invalid_resp, ID, <<"neither \"error\" nor \"result\"">>});
